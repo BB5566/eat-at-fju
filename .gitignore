@@ -4,3 +4,7 @@ dist
 .void-wrangler.jsonc
 .wrangler
 .env
+.env.*
+!.env.example
+*.tsbuildinfo
+.DS_Store

@@ -1,30 +1,44 @@
 // 心園餐廳的店家與菜色資料。
 // 價格來自 2023 年 5 月的新聞報導（見 SOURCES），交作業前要到現場再確認一次。
-// 照片是維基共享資源的示意照（授權見 photo-credits.json），不是心園實拍；有實拍照就換掉 public/img 裡同名檔案。
+// 照片是維基共享資源的示意照（授權見 photo-credits.json），不是心園實拍；
+// 有實拍照就換掉 public/img 裡同名的 -480.webp／-960.webp。
+
+export type Category = 'drink' | 'meal' | 'snack';
 
 export interface Dish {
   id: string;
   name: string;
-  price: string;
+  price: string;   // 顯示用
+  cost: number;    // 計算機用（一份的價格）
+  unit: string;    // 一份是多少
+  approx?: boolean; // 價格是估計的
+  category: Category;
   shop: string;
   note: string;
-  photo: string;
+  photo: string;   // public/img 裡的檔名（不含尺寸和副檔名）
 }
 
+export const CATEGORIES: { id: Category | 'all'; label: string }[] = [
+  { id: 'all', label: '全部' },
+  { id: 'drink', label: '🥤 飲料' },
+  { id: 'meal', label: '🍛 主食' },
+  { id: 'snack', label: '🍡 點心' },
+];
+
 export const DISHES: Dish[] = [
-  { id: 'juice', name: '現榨果汁 500cc', price: '$10', shop: '水果部', photo: '/img/juice.jpg',
+  { id: 'juice', name: '現榨果汁 500cc', price: '$10', cost: 10, unit: '一杯', category: 'drink', shop: '水果部', photo: 'juice',
     note: '檸檬、柳丁、西瓜等當季口味，32 年沒漲價，用懷舊玻璃杯裝。' },
-  { id: 'guava-lemon', name: '芭樂檸檬汁', price: '$15', shop: '水果部', photo: '/img/guava-lemon.jpg',
+  { id: 'guava-lemon', name: '芭樂檸檬汁', price: '$15', cost: 15, unit: '一杯', category: 'drink', shop: '水果部', photo: 'guava-lemon',
     note: '隱藏版口味，菜單上不一定看得到，要開口問。' },
-  { id: 'fruit', name: '切塊水果', price: '$20', shop: '水果部', photo: '/img/fruit.jpg',
+  { id: 'fruit', name: '切塊水果', price: '$20', cost: 20, unit: '一盒', category: 'snack', shop: '水果部', photo: 'fruit',
     note: '已經切好裝盒，下課直接帶走。' },
-  { id: 'dumplings', name: '現煮水餃', price: '5 顆 $20', shop: '麵食部', photo: '/img/dumplings.jpg',
+  { id: 'dumplings', name: '現煮水餃', price: '5 顆 $20', cost: 20, unit: '5 顆', category: 'meal', shop: '麵食部', photo: 'dumplings',
     note: '一顆 4 元，想吃多少點多少。' },
-  { id: 'curry', name: '咖哩雞肉燴飯', price: '$45', shop: '麵食部', photo: '/img/curry.jpg',
+  { id: 'curry', name: '咖哩雞肉燴飯', price: '$45', cost: 45, unit: '一份', category: 'meal', shop: '麵食部', photo: 'curry',
     note: '銅板價就能吃飽的一餐。' },
-  { id: 'lumei', name: '滷味', price: '一盤 < $50', shop: '滷味', photo: '/img/lumei.jpg',
+  { id: 'lumei', name: '滷味', price: '一盤 < $50', cost: 45, unit: '一盤', approx: true, category: 'meal', shop: '滷味', photo: 'lumei',
     note: '自己夾，份量大、價格友善。' },
-  { id: 'waffle', name: '鬆餅', price: '約 $30', shop: '巧瑋鬆餅屋', photo: '/img/waffle.jpg',
+  { id: 'waffle', name: '鬆餅', price: '約 $30', cost: 30, unit: '一片', approx: true, category: 'snack', shop: '巧瑋鬆餅屋', photo: 'waffle',
     note: '被稱為「輔大三寶」之一。價格是 3 年以上的食記資料，可能已調整。' },
 ];
 
