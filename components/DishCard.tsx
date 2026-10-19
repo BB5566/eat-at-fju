@@ -32,11 +32,11 @@ export function DishCard({ dish, count, voted, highlighted, onRecommend }: Props
   const [bursts, setBursts] = useState<number[]>([]);
 
   function click() {
+    onRecommend();
     if (voted) return;
     const id = Date.now();
     setBursts((b) => [...b, id]);
     setTimeout(() => setBursts((b) => b.filter((x) => x !== id)), 900);
-    onRecommend();
   }
 
   return (

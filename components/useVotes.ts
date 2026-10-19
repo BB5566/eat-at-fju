@@ -2,10 +2,9 @@
 // 1. 按下去馬上 +1（不用等伺服器），失敗再退回
 // 2. 收到別人的推薦（即時推播）就更新數字，並回傳一則通知文字
 // 3. 每台裝置每道菜只能推薦一次（記在 localStorage）
-import { action } from '@void/react';
 import { useEffect, useState } from 'react';
 import { connectLiveStream } from 'void/live/client';
-import type { VoteEvent } from '../pages/index.server';
+import type { VoteEvent } from '../routes/vote';
 import { DISHES } from '../lib/menu-data';
 
 const VOTED_KEY = 'xinyuan-voted';
@@ -59,7 +58,11 @@ export function useVotes(initial: Record<string, number>) {
   }, [notice]);
 
   async function recommend(dishId: string) {
-    if (voted.includes(dishId)) return;
+    // 推薦過的再按，跳提示讓人知道按鈕有反應
+    if (voted.includes(dishId)) {
+      setNotice('你已經推薦過這道了，一道菜只能推薦一次');
+      return;
+    }
     const nextVoted = [...voted, dishId];
     setVoted(nextVoted);
     setCounts((prev) => ({ ...prev, [dishId]: (prev[dishId] ?? 0) + 1 }));
@@ -68,8 +71,12 @@ export function useVotes(initial: Record<string, number>) {
     } catch {
       // 無痕模式等情況存不了，不影響推薦
     }
-    const result = await action('/', { data: { dishId, clientId: getClientId() } });
-    if (!result.ok) {
+    const res = await fetch('/vote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dishId, clientId: getClientId() }),
+    }).catch(() => null);
+    if (!res?.ok) {
       setVoted(voted);
       setCounts((prev) => ({ ...prev, [dishId]: (prev[dishId] ?? 1) - 1 }));
     }
