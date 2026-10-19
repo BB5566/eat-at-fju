@@ -3,7 +3,7 @@
 大學入門課作業。用 [Void](https://void.cloud/)（Vite＋Cloudflare）做的一頁式介紹網站，含「同學推薦」按讚功能（D1 資料庫，所有人畫面即時更新）。
 
 ## 待辦（交作業前）
-- [ ] **上線**：還沒部署。要 BB 本人在電腦前跑 `npx void deploy`，第一次會開瀏覽器登入 Cloudflare（AI 不代登入）
+- [ ] **上線**：還沒部署。要 BB 本人在電腦前跑下面「上線」那兩行，第一次會開瀏覽器登入 Cloudflare（AI 不代登入）
 - [ ] 上線後用正式網址重跑 Lighthouse（本機預覽：桌機 99/100/100/100、手機效能 84，主要扣在本機沒壓縮）
 - [ ] 到心園現場確認價格與營業時間，改 `lib/menu-data.ts`（目前是 2023 年報導的資料）
 - [ ] 拍心園實拍照，換掉 `public/img/` 的示意照（同檔名，480／720／960 三種寬度的 webp）
@@ -15,11 +15,12 @@ npm run dev
 ```
 打開 http://localhost:5173
 
-## 上線
+## 上線（部署到自己的 Cloudflare 帳號，免費額度內）
 ```sh
-npx void deploy
+npx void connect --platform cloudflare   # 第一次：開瀏覽器登入 Cloudflare、選帳號
+npx void deploy --platform cloudflare    # 打包並上線，完成後印出網址
 ```
-第一次會開瀏覽器登入 Cloudflare，完成後印出網址。
+直接 `npx void deploy` 會報「No Void platform connected」，因為預設是 Void 自家平台。
 
 ## 檔案
 - `lib/menu-data.ts`：店家、菜色、價格、資料來源（價格是 2023 年報導，交作業前到現場確認）
