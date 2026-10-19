@@ -1,0 +1,90 @@
+:root {
+  --bg: #fbf7f0;
+  --card: #ffffff;
+  --text: #2b2420;
+  --muted: #7a6e66;
+  --accent: #c8502e;
+  --accent-soft: #fde7dd;
+  --line: #ece3d8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1917;
+    --card: #292524;
+    --text: #f5efe8;
+    --muted: #b3a79d;
+    --accent: #f08a62;
+    --accent-soft: #3a2a23;
+    --line: #3a3330;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.page { max-width: 720px; margin: 0 auto; padding: 0 16px 48px; }
+
+.hero { padding: 48px 0 24px; }
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: 0.1em; margin: 0; }
+h1 { font-size: 2.6rem; margin: 4px 0 8px; }
+.lead { font-size: 1.15rem; color: var(--muted); margin: 0; }
+
+h2 { font-size: 1.3rem; margin: 32px 0 12px; }
+h3 { font-size: 1.1rem; margin: 0; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.info dl { display: grid; grid-template-columns: 5.5em 1fr; gap: 6px 12px; margin: 0; }
+.info dt { color: var(--muted); }
+.info dd { margin: 0; }
+.info h2 { margin-top: 0; }
+
+.hint { color: var(--muted); margin-top: -4px; }
+
+.dishes { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.dish { display: flex; align-items: center; gap: 14px; }
+.emoji { font-size: 2rem; }
+.body { flex: 1; min-width: 0; }
+.price { margin: 2px 0; color: var(--accent); font-weight: 700; }
+.shop { color: var(--muted); font-weight: 400; }
+.note { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+button:disabled { opacity: 0.5; }
+
+.ranking { margin: 0; padding-left: 1.4em; }
+.ranking li { padding: 4px 0; }
+.count { margin-left: 6px; }
+.ranking .count { color: var(--muted); }
+
+footer { margin-top: 40px; color: var(--muted); font-size: 0.9rem; }
+footer a { color: inherit; }
+
+@media (max-width: 480px) {
+  h1 { font-size: 2.1rem; }
+  .dish { flex-wrap: wrap; }
+  .dish button { margin-left: auto; }
+}

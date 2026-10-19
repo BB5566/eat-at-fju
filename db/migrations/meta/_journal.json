@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1792382767681,
+      "tag": "20261019040607_acoustic_whirlwind",
+      "breakpoints": true
+    }
+  ]
+}
