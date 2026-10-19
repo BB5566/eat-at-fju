@@ -3,7 +3,7 @@
 大學入門課作業。用 [Void](https://void.cloud/)（Vite＋Cloudflare）做的一頁式介紹網站，含「同學推薦」按讚功能（D1 資料庫，所有人畫面即時更新）。
 
 ## 待辦（交作業前）
-- [x] **上線**（2026-10-19）：https://eat-at-fju.mobbsong.workers.dev
+- [x] **上線**（2026-10-19）：https://fju.bb-made.com（綁在 bb-made.com 的子網域，workers.dev 網址已關）
 - [x] 正式網址 Lighthouse（手機）：效能 96、無障礙 100、最佳做法 100、SEO 100（LCP 1.9 秒、CLS 0）
 - [ ] 到心園現場確認價格與營業時間，改 `lib/menu-data.ts`（目前是 2023 年報導的資料）
 - [ ] 拍心園實拍照，換掉 `public/img/` 的示意照（同檔名，480／720／960 三種寬度的 webp）
