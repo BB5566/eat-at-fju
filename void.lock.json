@@ -2,7 +2,17 @@
   "version": 1,
   "source": {},
   "resolved": {
-    "compatibility_date": "2026-02-24"
+    "compatibility_date": "2026-02-24",
+    "account_id": "27dd5e99a7554a1daf5307be17d86c01",
+    "d1_databases": [
+      {
+        "binding": "DB",
+        "database_name": "eat-at-fju-db",
+        "database_id": "2bc2e50c-7fca-4014-a20c-19cf75af5788",
+        "migrations_dir": "./db/migrations"
+      }
+    ],
+    "name": "eat-at-fju"
   },
-  "text": "{\n  \"compatibility_date\": \"2026-02-24\"\n}\n"
+  "text": "{\n  \"compatibility_date\": \"2026-02-24\",\n  \"account_id\": \"27dd5e99a7554a1daf5307be17d86c01\",\n  \"d1_databases\": [\n    {\n      \"binding\": \"DB\",\n      \"database_name\": \"eat-at-fju-db\",\n      \"database_id\": \"2bc2e50c-7fca-4014-a20c-19cf75af5788\",\n      \"migrations_dir\": \"./db/migrations\"\n    }\n  ],\n  \"name\": \"eat-at-fju\"\n}\n"
 }
