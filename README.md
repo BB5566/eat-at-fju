@@ -20,3 +20,4 @@ npx void deploy
 - `pages/index.tsx`：頁面
 - `pages/index.server.ts`：讀推薦數（loader）、按推薦（action）
 - `db/schema.ts`：推薦數資料表
+- `public/img/`：維基共享資源的示意照（作者與授權在 `lib/photo-credits.json`，頁尾會列出）。有心園實拍照就用同檔名蓋掉
