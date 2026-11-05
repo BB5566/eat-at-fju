@@ -98,7 +98,10 @@ body::before {
 
 @media (max-width: 760px) {
   .hero { grid-template-columns: 1fr; padding: 40px 16px 72px; }
-  .collage { height: 260px; }
+  /* 寬度上限讓平板上的照片也塞得進 260px 高 */
+  .collage { height: 260px; width: min(100%, 380px); justify-self: center; }
+  /* img 的 height 屬性會蓋過 aspect-ratio，手機上照片會超出容器、蓋住上面的按鈕 */
+  .collage img { height: auto; }
 }
 
 /* ---------- 亮點數字 ---------- */
