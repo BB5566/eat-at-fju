@@ -17,6 +17,8 @@
 }
 
 * { box-sizing: border-box; }
+/* 點導覽跳段落時，標題不要被上方固定的導覽列蓋住 */
+html { scroll-padding-top: 72px; scroll-behavior: smooth; }
 
 body {
   overflow-x: hidden;
@@ -490,6 +492,7 @@ footer ul { margin: 0; padding-left: 1.2em; }
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, ::before, ::after { animation: none !important; transition: none !important; }
 }
 
