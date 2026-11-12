@@ -15,8 +15,8 @@ export const loader = defineHandler(async () => {
 export const head = defineHead(() => ({
   title: '心園餐廳',
   meta: [
-    { name: 'description', content: '輔大心園餐廳：10 元現榨果汁、銅板價水餃與咖哩飯，學生的平價好去處。' },
-    { name: 'theme-color', content: '#e2552d' },
+    { name: 'description', content: '輔大心園餐廳（信義和平學苑地下一樓）：檸檬汁 10 元、乾麵 35 元、水餃一顆 5 元。完整價目、營業時間與實拍照片，2026 年 11 月整理。' },
+    { name: 'theme-color', content: '#f6f4ee' },
   ],
   link: [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
 }));
