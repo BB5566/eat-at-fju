@@ -84,7 +84,7 @@ export default function Home(props: Props) {
           <div className="sec-head">
             <p className="sec-tag">必吃</p>
             <h2>必吃清單</h2>
-            <p className="hint">吃過覺得好吃就按「推薦」，所有人的畫面會即時更新。照片都是 Google 地圖上同學拍的。</p>
+            <p className="hint">吃過覺得好吃就按「推薦」，所有人的畫面會即時更新。照片都是 Google 地圖使用者拍的心園實景。</p>
           </div>
           <div className="chips" role="group" aria-label="分類">
             {CATEGORIES.map((c) => (
@@ -113,7 +113,7 @@ export default function Home(props: Props) {
           <div className="sec-head">
             <p className="sec-tag">價目</p>
             <h2>完整價目板</h2>
-            <p className="hint">照 Google 地圖上同學拍的價目牌整理，單位是新台幣。價格會調整，以現場為準。</p>
+            <p className="hint">照 Google 地圖使用者拍的價目牌整理，單位是新台幣。價格會調整，以現場為準。</p>
           </div>
           <div className="board">
             {PRICE_BOARD.map((s) => (
@@ -209,7 +209,7 @@ export default function Home(props: Props) {
             <div>
               <h3>資料怎麼來</h3>
               <ul>
-                <li>價格：Google 地圖上同學拍的價目牌，每一攤標出拍攝月份（2024 年 10 月～2026 年 9 月）。</li>
+                <li>價格：Google 地圖使用者拍的價目牌，每一攤標出拍攝月份（2024 年 10 月～2026 年 9 月）。</li>
                 <li>營業時間：Google 地圖店家資訊、評論，和鬆餅屋門口的公告。</li>
                 <li>照片：Google 地圖上的心園實拍，每張都標拍攝者和月份。</li>
               </ul>

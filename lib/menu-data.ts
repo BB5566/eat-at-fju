@@ -41,9 +41,9 @@ export const DISHES: Dish[] = [
   { id: 'buffet', name: '自助餐', price: '現場計價', unit: '一份', category: 'meal', shop: '自助餐', photo: 'buffet',
     note: '自己夾菜配白飯，依夾的菜現場算錢。' },
   { id: 'lumei', name: '滷味', price: '現場計價', unit: '一盤', category: 'meal', shop: '滷味', photo: 'lumei',
-    note: '自己夾料再交給老闆滷，依夾的東西算錢。' },
+    note: '自己夾料，依夾的東西算錢。' },
   { id: 'fruit', name: '蘋果', price: '一顆 $15／$20', cost: 15, unit: '一顆', category: 'snack', shop: '水果攤', photo: 'fruit',
-    note: '整顆賣，分兩種大小。' },
+    note: '整顆賣，兩籃價格不同：一顆 15 或 20 元。' },
 ];
 
 // 首頁的三張價目牌（照果汁吧掛在牆上的直式牌子做的）
