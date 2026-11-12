@@ -1,16 +1,22 @@
 // 百元吃飽計算機：在預算內配出像樣的一餐。
 // 規則（一個人吃一餐）：主食剛好一樣（水餃可以點 5／10／15 顆）、飲料最多一杯、點心最多兩樣各一份。
-// 菜只有 7 樣，直接把所有組合列出來算，最簡單也最不會錯。
+// 菜不多，直接把所有組合列出來算，最簡單也最不會錯。現場計價的菜（沒寫 cost）不算進來。
 import { DISHES, type Dish } from './menu-data';
 
+type Priced = Dish & { cost: number };
+
 export interface Combo {
-  items: { dish: Dish; qty: number }[];
+  items: { dish: Priced; qty: number }[];
   total: number;
 }
 
-const meals = DISHES.filter((d) => d.category === 'meal');
-const drinks = DISHES.filter((d) => d.category === 'drink');
-const snacks = DISHES.filter((d) => d.category === 'snack');
+const priced = DISHES.filter((d): d is Priced => d.cost !== undefined);
+const meals = priced.filter((d) => d.category === 'meal');
+const drinks = priced.filter((d) => d.category === 'drink');
+const snacks = priced.filter((d) => d.category === 'snack');
+
+// 最便宜的主食，預算不到這個數字就吃不到
+export const CHEAPEST_MEAL = Math.min(...meals.map((d) => d.cost));
 
 // 主食的點法：水餃可以加點，其他就一份
 function mealChoices() {
@@ -18,8 +24,8 @@ function mealChoices() {
 }
 
 // 點心的所有選法：不點、點一樣、點兩樣
-function snackChoices(): Dish[][] {
-  const result: Dish[][] = [[]];
+function snackChoices(): Priced[][] {
+  const result: Priced[][] = [[]];
   snacks.forEach((a, i) => {
     result.push([a]);
     snacks.slice(i + 1).forEach((b) => result.push([a, b]));

@@ -39,16 +39,17 @@ export function FoodPicker({ onPick }: { onPick: (dishId: string) => void }) {
 
   const dish = DISHES[index];
   return (
-    <section className="picker card reveal">
+    <section id="picker" className="picker panel reveal">
       <div className="picker-text">
-        <h2>今天吃什麼？</h2>
-        <p className="hint">選擇困難？交給命運。</p>
-        <button className="cta" onClick={spin} disabled={spinning}>{spinning ? '轉轉轉…' : '🎰 幫我選'}</button>
+        <p className="sec-tag">抽籤</p>
+        <h2>今天吃什麼</h2>
+        <p className="hint">不想選就交給它，抽到的菜會在清單裡亮起來。</p>
+        <button className="btn" onClick={spin} disabled={spinning}>{spinning ? '抽籤中…' : '幫我選一道'}</button>
       </div>
-      <div className={`slot${spinning ? ' spinning' : ''}`} aria-live="polite">
-        <Photo name={dish.photo} alt={dish.name} sizes="280px" />
-        <p>{dish.name}<span>{dish.price}</span></p>
-      </div>
+      <figure className={`slot${spinning ? ' spinning' : ''}`} aria-live="polite">
+        <Photo name={dish.photo} alt={dish.name} sizes="(max-width: 560px) 92vw, 320px" />
+        <figcaption><b>{dish.name}</b><span>{dish.price}</span></figcaption>
+      </figure>
     </section>
   );
 }
